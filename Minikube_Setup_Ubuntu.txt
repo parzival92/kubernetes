@@ -1,0 +1,41 @@
+Install Kubectl
+-----------------------------------------------------------------------------------------------------
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+-------------------------------------------------------------------------------------------------------
+Install docker
+------------------------------------------------------------------------------------------------------------
+sudo apt-get update
+
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+sudo docker run hello-world
+
+-----------------------------------------------------------------------------
+Run docker without sudo
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker 
+
+-----------------------------------------------------------------------------------
+Install Minikube
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+minikube start --driver=docker
+
+------------------------------------------------------------------------------------
+
+
+
