@@ -7,3 +7,18 @@ kubectl delete replicaset "replicasetname"
 kubectl replace -f replicaset-definition.yaml
 kubectl scale -replicas=6 -f replicaset-definition.yaml
 ------------------------------------------------------
+Deployment
+-------------------------------------------------------
+kubectl get all
+kubectl get deployments
+kubectl describe deployment "deployment-name
+kubectl create deployment httpdfrontend --image=httpd:2.4-alpine
+kubectl scale deployment --replicas=3 httpdfrontend
+---------------------------------------------------------
+Rollout
+--------------------------------------------------
+kubectl rollout status deployment/deploymentname
+kubectl rollout history deployment/deploymentname
+kubectl rollout undo deployment/deploymentname
+kubectl rollout undo deployment/nginx-deployment --to-revision=2
+-----------------------------------------------------------------------
