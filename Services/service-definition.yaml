@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30004
+  selector:
+    app: myapp
+
+# kubectl create -f service-defintion.yaml
+# kubectl get svc
+
+# ClusterIp - Internal Communication
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: image-processing
+    labels:
+        app: myapp
+spec:
+    type: ClusterIP
+    ports:
+    - port: 80
+      targetPort: 8080
+    selector:
+        tier: backend
+
+---
+# Load Balancer Service
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30008
+
+---
+
